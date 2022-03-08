@@ -19,18 +19,31 @@ dependencies {
 	implementation ('org.springframework.boot:spring-boot-starter-web') {
 		exclude module : 'spring-boot-starter-logging'
 	} 
-	//implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
 	runtimeOnly 'mysql:mysql-connector-java'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation ('org.springframework.boot:spring-boot-starter-oauth2-client') {
+		exclude module : 'spring-boot-starter-logging'
+	}
 	//implementation 'org.springframework.security:spring-security-test'
-	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation ('org.springframework.boot:spring-boot-starter-cache') {
+		exclude module : 'spring-boot-starter-logging'
+	}
+	//implementation 'org.springframework.session:spring-session-hazelcast'
+	//implementation 'com.hazelcast:hazelcast-spring'
 	//implementation group: 'com.hazelcast', name: 'hazelcast-all', version: '4.0.2'
-
+	implementation ('org.springframework.boot:spring-boot-starter-security') {
+		exclude module : 'spring-boot-starter-logging'
+	}
+	
 	testImplementation ('org.springframework.boot:spring-boot-starter-test') {
 		exclude module : 'spring-boot-starter-logging'
 	}
-	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
-	testImplementation 'org.mockito:mockito-core:3.+'
+	testImplementation ('org.junit.jupiter:junit-jupiter:5.7.2') {
+		exclude module : 'spring-boot-starter-logging'
+	}
+	testImplementation ('org.mockito:mockito-core:3.+') {
+		exclude module : 'spring-boot-starter-logging'
+	}
 }
 
 test {

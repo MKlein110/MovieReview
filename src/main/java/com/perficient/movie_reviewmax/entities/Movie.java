@@ -28,9 +28,14 @@ public class Movie implements Serializable {
 	@OneToMany
 	@JoinColumn(name = "movie_id")
 	private List<Review> reviews;
-	
 	@Column(name = "avg_rating")
 	private double averageRating;
+	@Column(name = "genre_movie")
+	private String genre;
+	@Column(name = "year_movie")
+	private int releaseDate;
+	@Column(name = "writer_movie")
+	private String writer;
 	
 	public Movie() {
 		
@@ -85,5 +90,29 @@ public class Movie implements Serializable {
 		}
 		averageRating = Math.round((averageRating / this.reviews.size() * 100)) / 100.0;
 		this.setAverageRating(averageRating);
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public int getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(int releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 }

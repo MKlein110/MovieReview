@@ -19,4 +19,6 @@ public interface MovieRepository extends CrudRepository<Movie, Long>{
 	
 	@Query("FROM Movie ORDER BY avg_rating DESC, director_movie ASC")
 	List<Movie> orderMovieByRating();
+	
+	List<Movie> findAll();
 }
