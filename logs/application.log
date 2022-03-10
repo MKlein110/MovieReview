@@ -22477,3 +22477,79 @@ Unconditional classes:
 2022-03-10 15:33:56.723  INFO 9260 --- [RMI TCP Connection(15)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-03-10 15:33:56.725  INFO 9260 --- [RMI TCP Connection(15)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
 2022-03-10 15:33:56.732  INFO 9260 --- [RMI TCP Connection(15)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+2022-03-10 15:36:27.497  INFO 14660 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 14660 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 15:36:27.506  INFO 14660 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 15:36:27.577  INFO 14660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-10 15:36:27.577  INFO 14660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-10 15:36:28.429  INFO 14660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 15:36:28.489  INFO 14660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 3 JPA repository interfaces.
+2022-03-10 15:36:29.111  INFO 14660 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-10 15:36:29.121  INFO 14660 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2022-03-10 15:36:29.122  INFO 14660 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-10 15:36:29.246  INFO 14660 --- [restartedMain] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring embedded WebApplicationContext
+2022-03-10 15:36:29.247  INFO 14660 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1669 ms
+2022-03-10 15:36:29.507  INFO 14660 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2022-03-10 15:36:29.858  INFO 14660 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2022-03-10 15:36:29.904  INFO 14660 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-10 15:36:29.944  INFO 14660 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-10 15:36:30.066  INFO 14660 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-10 15:36:30.218  INFO 14660 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-03-10 15:36:30.849  INFO 14660 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-10 15:36:30.855  INFO 14660 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 15:36:30.943  WARN 14660 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-10 15:36:31.687  INFO 14660 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d06e878, org.springframework.security.web.context.SecurityContextPersistenceFilter@12974a05, org.springframework.security.web.header.HeaderWriterFilter@6504d069, org.springframework.web.filter.CorsFilter@108fe661, org.springframework.security.web.authentication.logout.LogoutFilter@4d535ebb, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1844dc9a, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@294de785, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1ad9a9be, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6a31e5c2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7266a6f6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@779fe4a9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5bbb22a1, org.springframework.security.web.session.SessionManagementFilter@4755a52a, org.springframework.security.web.access.ExceptionTranslationFilter@42b7af70, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@76c5ff72]
+2022-03-10 15:36:32.123  INFO 14660 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-10 15:36:32.189  INFO 14660 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path '/moviereview'
+2022-03-10 15:36:32.203  INFO 14660 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Started MovieReviewMaxApplication in 5.224 seconds (JVM running for 6.196)
+2022-03-10 15:36:39.529  INFO 14660 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-10 15:36:39.532  INFO 14660 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2022-03-10 15:36:39.538  INFO 14660 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2022-03-10 15:36:39.645  INFO 14660 --- [http-nio-8080-exec-1] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:36:45.427  INFO 14660 --- [http-nio-8080-exec-7] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:37:12.623  INFO 14660 --- [http-nio-8080-exec-2] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:37:22.631  INFO 14660 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 15:37:22.634  INFO 14660 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2022-03-10 15:37:22.640  INFO 14660 --- [Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2022-03-10 15:37:22.730  INFO 14660 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 14660 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 15:37:22.731  INFO 14660 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 15:37:23.069  INFO 14660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 15:37:23.085  INFO 14660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
+2022-03-10 15:40:12.048  INFO 23000 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 23000 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 15:40:12.058  INFO 23000 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 15:40:12.109  INFO 23000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-10 15:40:12.109  INFO 23000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-10 15:40:12.834  INFO 23000 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 15:40:12.931  INFO 23000 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2022-03-10 15:40:13.569  INFO 23000 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-10 15:40:13.580  INFO 23000 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2022-03-10 15:40:13.580  INFO 23000 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-10 15:40:13.734  INFO 23000 --- [restartedMain] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring embedded WebApplicationContext
+2022-03-10 15:40:13.735  INFO 23000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1623 ms
+2022-03-10 15:40:13.889  INFO 23000 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2022-03-10 15:40:14.230  INFO 23000 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2022-03-10 15:40:14.273  INFO 23000 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-10 15:40:14.320  INFO 23000 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-10 15:40:14.477  INFO 23000 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-10 15:40:14.575  INFO 23000 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-03-10 15:40:15.139  INFO 23000 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-10 15:40:15.145  INFO 23000 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 15:40:15.226  WARN 23000 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-10 15:40:15.838  INFO 23000 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ca9c99c, org.springframework.security.web.context.SecurityContextPersistenceFilter@74a7945e, org.springframework.security.web.header.HeaderWriterFilter@1ca14cc0, org.springframework.web.filter.CorsFilter@57f2b7be, org.springframework.security.web.authentication.logout.LogoutFilter@4c4cb979, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@740f62d3, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@24a0ded, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@21f2ad79, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1526a80c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34aeb8b5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5508cb8d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f44d297, org.springframework.security.web.session.SessionManagementFilter@393b3849, org.springframework.security.web.access.ExceptionTranslationFilter@61959324, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@46699ee8]
+2022-03-10 15:40:16.142  INFO 23000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-10 15:40:16.180  INFO 23000 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path '/moviereview'
+2022-03-10 15:40:16.190  INFO 23000 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Started MovieReviewMaxApplication in 4.532 seconds (JVM running for 5.514)
+2022-03-10 15:40:19.190  INFO 23000 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-10 15:40:19.192  INFO 23000 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2022-03-10 15:40:19.195  INFO 23000 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2022-03-10 15:40:19.319  INFO 23000 --- [http-nio-8080-exec-1] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:40:39.993  INFO 23000 --- [http-nio-8080-exec-5] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:43:43.789  INFO 23000 --- [http-nio-8080-exec-10] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:45:11.307  INFO 23000 --- [http-nio-8080-exec-7] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:45:42.919  INFO 23000 --- [http-nio-8080-exec-1] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:46:16.186  INFO 23000 --- [http-nio-8080-exec-6] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:46:24.346  INFO 23000 --- [http-nio-8080-exec-10] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:46:28.350  INFO 23000 --- [http-nio-8080-exec-3] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 15:46:35.559  INFO 23000 --- [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-03-10 15:46:35.582  INFO 23000 --- [RMI TCP Connection(16)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 15:46:35.585  INFO 23000 --- [RMI TCP Connection(16)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2022-03-10 15:46:35.594  INFO 23000 --- [RMI TCP Connection(16)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
