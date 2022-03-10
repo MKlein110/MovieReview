@@ -24,12 +24,13 @@ public class CustomOidcUserService extends OidcUserService {
     @Override
     public OidcUser loadUser(OidcUserRequest userRequest) throws OAuth2AuthenticationException {
         OidcUser oidcUser = super.loadUser(userRequest);
-        Map attributes = oidcUser.getAttributes();
+        Map<String, Object> attributes = oidcUser.getAttributes();
         GoogleOAuth2UserInfo userInfo = new GoogleOAuth2UserInfo();
         userInfo.setEmail((String) attributes.get("email"));
         userInfo.setId((String) attributes.get("sub"));
         userInfo.setName((String) attributes.get("name"));
         updateUser(userInfo);
+        System.out.println("user name" + userInfo.getName());
         return oidcUser;
     }
 

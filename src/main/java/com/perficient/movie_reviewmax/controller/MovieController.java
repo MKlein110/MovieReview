@@ -48,42 +48,42 @@ public class MovieController {
 //	public String getErrorPath() {
 //		return "/error";
 //	}
-	@Autowired
-	private AuthenticationManager authenticationManager;
+//	@Autowired
+//	private AuthenticationManager authenticationManager;
 
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(MovieReviewServiceImpl.class);
 
-	@GetMapping("/user")
-    public ResponseEntity<?> user(@AuthenticationPrincipal OAuth2User principal) {
+//	@GetMapping("/user")
+//    public ResponseEntity<?> user(@AuthenticationPrincipal OAuth2User principal) {
 //		Map<String, Object> authorities = principal.getAttributes();
 //		for (Entry<String, Object> attribute: authorities.entrySet()) {
 //			if (attribute.getKey().equals("name")) {
 //				System.out.println(attribute.getValue());
 //			}
 //		}
-		System.out.println("Entering");
-		String name = principal.getAttribute("name");
-		String email = principal.getAttribute("email");
-		System.out.println("Name is printing" + name);
-		System.out.println("Email is printing" + email);
-		try {
-			Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(name, email));
-		
-			System.out.println(principal);
-			System.out.println(authenticate);
-			User user = (User) authenticate.getPrincipal();
-	
-		
-			return (ResponseEntity<?>) ResponseEntity.ok()
-					.header(HttpHeaders.AUTHORIZATION, JwtTokenUtil.generateAccessToken(user));
-    
-		} catch(Exception ce) {
-			System.out.println("fail" + ce);
-			return new ResponseEntity<ControllerException>(HttpStatus.BAD_REQUEST) ;
+//		System.out.println("Entering");
+//		String name = principal.getAttribute("name");
+//		String email = principal.getAttribute("email");
+//		System.out.println("Name is printing" + name);
+//		System.out.println("Email is printing" + email);
+//		try {
+//			Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(name, email));
+//		
+//			System.out.println(principal);
+//			System.out.println(authenticate);
+//			User user = (User) authenticate.getPrincipal();
+//	
+//		
+//			return (ResponseEntity<?>) ResponseEntity.ok()
+//					.header(HttpHeaders.AUTHORIZATION, JwtTokenUtil.generateAccessToken(user));
+//    
+//		} catch(Exception ce) {
+//			System.out.println("fail" + ce);
+//			return new ResponseEntity<ControllerException>(HttpStatus.BAD_REQUEST) ;
 
-		}
+//		}
 
-    }
+//    }
 
 	// @CrossOrigin(origins = "*")
 	@GetMapping("/movies")

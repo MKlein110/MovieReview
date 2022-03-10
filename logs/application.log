@@ -21407,3 +21407,223 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.oaut
 2022-03-10 11:34:39.081  INFO 23112 --- [RMI TCP Connection(17)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-03-10 11:34:39.083  INFO 23112 --- [RMI TCP Connection(17)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
 2022-03-10 11:34:39.099  INFO 23112 --- [RMI TCP Connection(17)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+2022-03-10 14:09:12.520  INFO 18596 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 18596 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 14:09:12.527  INFO 18596 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 14:09:12.574  INFO 18596 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-10 14:09:12.575  INFO 18596 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-10 14:09:13.556  INFO 18596 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 14:09:13.623  INFO 18596 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
+2022-03-10 14:09:14.168  INFO 18596 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-10 14:09:14.178  INFO 18596 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2022-03-10 14:09:14.179  INFO 18596 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-10 14:09:14.291  INFO 18596 --- [restartedMain] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring embedded WebApplicationContext
+2022-03-10 14:09:14.292  INFO 18596 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1717 ms
+2022-03-10 14:09:14.429  INFO 18596 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2022-03-10 14:09:14.781  INFO 18596 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2022-03-10 14:09:14.839  INFO 18596 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-10 14:09:14.914  INFO 18596 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-10 14:09:15.104  INFO 18596 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-10 14:09:15.211  INFO 18596 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-03-10 14:09:16.130  INFO 18596 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-10 14:09:16.135  INFO 18596 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:09:16.214  WARN 18596 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-10 14:09:16.596  WARN 18596 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'movieController': Unsatisfied dependency expressed through field 'authenticationManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.security.authentication.AuthenticationManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-03-10 14:09:16.597  INFO 18596 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:09:16.598  INFO 18596 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2022-03-10 14:09:16.604  INFO 18596 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2022-03-10 14:09:16.606  INFO 18596 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2022-03-10 14:09:16.617  INFO 18596 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-03-10 14:09:16.632 ERROR 18596 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field authenticationManager in com.perficient.movie_reviewmax.controller.MovieController required a bean of type 'org.springframework.security.authentication.AuthenticationManager' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.authentication.AuthenticationManager' in your configuration.
+
+2022-03-10 14:12:27.092  INFO 21800 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 21800 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 14:12:27.100  INFO 21800 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 14:12:27.155  INFO 21800 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-10 14:12:27.155  INFO 21800 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-10 14:12:28.033  INFO 21800 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 14:12:28.102  INFO 21800 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
+2022-03-10 14:12:28.631  INFO 21800 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-10 14:12:28.638  INFO 21800 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2022-03-10 14:12:28.639  INFO 21800 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-10 14:12:28.756  INFO 21800 --- [restartedMain] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring embedded WebApplicationContext
+2022-03-10 14:12:28.756  INFO 21800 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1601 ms
+2022-03-10 14:12:28.900  INFO 21800 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2022-03-10 14:12:29.230  INFO 21800 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2022-03-10 14:12:29.281  INFO 21800 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-10 14:12:29.330  INFO 21800 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-10 14:12:29.465  INFO 21800 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-10 14:12:29.542  INFO 21800 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-03-10 14:12:30.248  INFO 21800 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-10 14:12:30.254  INFO 21800 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:12:30.313  WARN 21800 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-10 14:12:30.759  WARN 21800 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.security.crypto.password.PasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-03-10 14:12:30.760  INFO 21800 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:12:30.762  INFO 21800 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2022-03-10 14:12:30.769  INFO 21800 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2022-03-10 14:12:30.772  INFO 21800 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2022-03-10 14:12:30.785  INFO 21800 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-03-10 14:12:30.806 ERROR 21800 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field passwordEncoder in com.perficient.movie_reviewmax.service.UserServiceImpl required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
+
+2022-03-10 14:12:47.353  INFO 23032 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 23032 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 14:12:47.361  INFO 23032 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 14:12:47.418  INFO 23032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-10 14:12:47.418  INFO 23032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-10 14:12:48.097  INFO 23032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 14:12:48.187  INFO 23032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 3 JPA repository interfaces.
+2022-03-10 14:12:48.742  INFO 23032 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-10 14:12:48.760  INFO 23032 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2022-03-10 14:12:48.761  INFO 23032 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-10 14:12:48.893  INFO 23032 --- [restartedMain] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring embedded WebApplicationContext
+2022-03-10 14:12:48.894  INFO 23032 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1475 ms
+2022-03-10 14:12:49.087  INFO 23032 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2022-03-10 14:12:49.350  INFO 23032 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2022-03-10 14:12:49.384  INFO 23032 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-10 14:12:49.420  INFO 23032 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-10 14:12:49.573  INFO 23032 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-10 14:12:49.685  INFO 23032 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-03-10 14:12:50.280  INFO 23032 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-10 14:12:50.286  INFO 23032 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:12:50.340  WARN 23032 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-10 14:12:50.800  WARN 23032 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Injection of autowired dependencies failed; nested exception is java.lang.IllegalStateException: @Order on WebSecurityConfigurers must be unique. Order of 100 was already used on com.perficient.movie_reviewmax.config.SecurityConfig$$EnhancerBySpringCGLIB$$a89e89cb@4a62a313, so it cannot be used on com.perficient.movie_reviewmax.config.WebConfig$$EnhancerBySpringCGLIB$$9da92101@27b16cd5 too.
+2022-03-10 14:12:50.801  INFO 23032 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:12:50.807  INFO 23032 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2022-03-10 14:12:50.820  INFO 23032 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2022-03-10 14:12:50.824  INFO 23032 --- [restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2022-03-10 14:12:50.845  INFO 23032 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-03-10 14:12:50.873 ERROR 23032 --- [restartedMain] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Injection of autowired dependencies failed; nested exception is java.lang.IllegalStateException: @Order on WebSecurityConfigurers must be unique. Order of 100 was already used on com.perficient.movie_reviewmax.config.SecurityConfig$$EnhancerBySpringCGLIB$$a89e89cb@4a62a313, so it cannot be used on com.perficient.movie_reviewmax.config.WebConfig$$EnhancerBySpringCGLIB$$9da92101@27b16cd5 too.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.6.3.jar:2.6.3]
+	at com.perficient.movie_reviewmax.MovieReviewMaxApplication.main(MovieReviewMaxApplication.java:16) [main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.6.3.jar:2.6.3]
+Caused by: java.lang.IllegalStateException: @Order on WebSecurityConfigurers must be unique. Order of 100 was already used on com.perficient.movie_reviewmax.config.SecurityConfig$$EnhancerBySpringCGLIB$$a89e89cb@4a62a313, so it cannot be used on com.perficient.movie_reviewmax.config.WebConfig$$EnhancerBySpringCGLIB$$9da92101@27b16cd5 too.
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration.setFilterChainProxySecurityConfigurer(WebSecurityConfiguration.java:165) ~[spring-security-config-5.6.1.jar:5.6.1]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:724) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.15.jar:5.3.15]
+	... 22 more
+
+2022-03-10 14:13:21.303  INFO 15748 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 15748 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 14:13:21.313  INFO 15748 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 14:13:21.358  INFO 15748 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-10 14:13:21.358  INFO 15748 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-10 14:13:21.989  INFO 15748 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 14:13:22.076  INFO 15748 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2022-03-10 14:13:22.580  INFO 15748 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-10 14:13:22.588  INFO 15748 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2022-03-10 14:13:22.588  INFO 15748 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-10 14:13:22.694  INFO 15748 --- [restartedMain] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring embedded WebApplicationContext
+2022-03-10 14:13:22.694  INFO 15748 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1335 ms
+2022-03-10 14:13:22.815  INFO 15748 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2022-03-10 14:13:23.175  INFO 15748 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2022-03-10 14:13:23.211  INFO 15748 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-10 14:13:23.244  INFO 15748 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-10 14:13:23.369  INFO 15748 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-10 14:13:23.456  INFO 15748 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-03-10 14:13:24.075  INFO 15748 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-10 14:13:24.080  INFO 15748 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:13:24.133  WARN 15748 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-10 14:13:24.643  INFO 15748 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50c033d9, org.springframework.security.web.context.SecurityContextPersistenceFilter@750bd56b, org.springframework.security.web.header.HeaderWriterFilter@7276971, org.springframework.web.filter.CorsFilter@d7c750, org.springframework.security.web.csrf.CsrfFilter@276c366d, org.springframework.security.web.authentication.logout.LogoutFilter@978f3b1, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@35f0e452, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@566e35b5, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3d0f74e2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@639cfa54, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@dd7c35b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b356b18, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37f481e9, org.springframework.security.web.session.SessionManagementFilter@3a8e0050, org.springframework.security.web.access.ExceptionTranslationFilter@3d4e3886, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ba63d26]
+2022-03-10 14:13:24.927  INFO 15748 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-10 14:13:24.974  INFO 15748 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path '/moviereview'
+2022-03-10 14:13:24.984  INFO 15748 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Started MovieReviewMaxApplication in 4.117 seconds (JVM running for 5.036)
+2022-03-10 14:13:35.444  INFO 15748 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-10 14:13:35.445  INFO 15748 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2022-03-10 14:13:35.446  INFO 15748 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2022-03-10 14:13:35.479  INFO 15748 --- [http-nio-8080-exec-1] c.p.m.s.MovieReviewServiceImpl           : Returning all movies
+2022-03-10 14:15:06.519  INFO 15748 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-03-10 14:15:06.545  INFO 15748 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:15:06.548  INFO 15748 --- [RMI TCP Connection(11)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2022-03-10 14:15:06.556  INFO 15748 --- [RMI TCP Connection(11)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2022-03-10 14:15:27.703  INFO 21796 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Starting MovieReviewMaxApplication using Java 17.0.1 on PRFT-16809 with PID 21796 (C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview\bin\main started by max.kleinerman in C:\Users\Max.Kleinerman\Documents\CloneDrive\Perficient\Project\MovieReview)
+2022-03-10 14:15:27.710  INFO 21796 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : No active profile set, falling back to default profiles: default
+2022-03-10 14:15:27.763  INFO 21796 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-10 14:15:27.763  INFO 21796 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-10 14:15:28.530  INFO 21796 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-10 14:15:28.592  INFO 21796 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 3 JPA repository interfaces.
+2022-03-10 14:15:29.102  INFO 21796 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2022-03-10 14:15:29.110  INFO 21796 --- [restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2022-03-10 14:15:29.110  INFO 21796 --- [restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-10 14:15:29.224  INFO 21796 --- [restartedMain] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring embedded WebApplicationContext
+2022-03-10 14:15:29.224  INFO 21796 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1461 ms
+2022-03-10 14:15:29.354  INFO 21796 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2022-03-10 14:15:29.599  INFO 21796 --- [restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2022-03-10 14:15:29.634  INFO 21796 --- [restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-10 14:15:29.666  INFO 21796 --- [restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-10 14:15:29.802  INFO 21796 --- [restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-10 14:15:29.911  INFO 21796 --- [restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2022-03-10 14:15:30.552  INFO 21796 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-10 14:15:30.559  INFO 21796 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:15:30.618  WARN 21796 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-10 14:15:31.221  INFO 21796 --- [restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@677ce65f, org.springframework.security.web.context.SecurityContextPersistenceFilter@26dc457a, org.springframework.security.web.header.HeaderWriterFilter@463fb5c8, org.springframework.web.filter.CorsFilter@74c7d577, org.springframework.security.web.csrf.CsrfFilter@74b0b365, org.springframework.security.web.authentication.logout.LogoutFilter@7d7c0c18, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@14bbc1c2, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5aa42a78, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@35691ded, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5e566ef0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6216939d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78372e2c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@457fa789, org.springframework.security.web.session.SessionManagementFilter@5f782d3f, org.springframework.security.web.access.ExceptionTranslationFilter@7013ad7c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6493e34e]
+2022-03-10 14:15:31.493  INFO 21796 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-10 14:15:31.523  INFO 21796 --- [restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path '/moviereview'
+2022-03-10 14:15:31.533  INFO 21796 --- [restartedMain] c.p.m.MovieReviewMaxApplication          : Started MovieReviewMaxApplication in 4.231 seconds (JVM running for 5.047)
+2022-03-10 14:15:43.652  INFO 21796 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/moviereview]             : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-10 14:15:43.653  INFO 21796 --- [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2022-03-10 14:15:43.654  INFO 21796 --- [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2022-03-10 14:16:25.834  INFO 21796 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-03-10 14:16:25.867  INFO 21796 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-10 14:16:25.870  INFO 21796 --- [RMI TCP Connection(10)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2022-03-10 14:16:25.879  INFO 21796 --- [RMI TCP Connection(10)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
