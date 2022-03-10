@@ -8,14 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.perficient.movie_reviewmax.entities.User;
 import com.perficient.movie_reviewmax.repo.UserRepository;
+import com.perficient.movie_reviewmax.service.UserServiceImpl;
 
 @RestController
 public class UserController {
 	@Autowired
-	private UserRepository userRepo;
+	private UserServiceImpl userRepo;
 	
 	@GetMapping("/users")
-	public List<User> getUsers() {
-		return userRepo.findAll();
+	public User getUsers(String email) {
+		return userRepo.loadUserByUsername(email);
 	}
 }

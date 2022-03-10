@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import com.perficient.movie_reviewmax.entities.Movie;
 import com.perficient.movie_reviewmax.entities.Review;
 import com.perficient.movie_reviewmax.repo.MovieRepository;
-import com.perficient.movie_reviewmax.repo.MovieReviewServiceImpl;
+import com.perficient.movie_reviewmax.service.MovieReviewServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;

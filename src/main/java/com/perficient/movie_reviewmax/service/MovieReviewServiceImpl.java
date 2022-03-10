@@ -1,4 +1,4 @@
-package com.perficient.movie_reviewmax.repo;
+package com.perficient.movie_reviewmax.service;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.perficient.movie_reviewmax.custom.exception.BusinessException;
 import com.perficient.movie_reviewmax.entities.Movie;
 import com.perficient.movie_reviewmax.entities.Review;
+import com.perficient.movie_reviewmax.repo.MovieRepository;
+import com.perficient.movie_reviewmax.repo.ReviewRepository;
 
 @Service
 public class MovieReviewServiceImpl implements MovieService {
@@ -126,7 +128,7 @@ public class MovieReviewServiceImpl implements MovieService {
 		return reviewRepo.save(review);
 	}
 
-	@Cacheable("movie-cache")
+	@CacheEvict(value = { "movie-cache", "ordered-movie-cache" }, allEntries = true)
 	public Iterable<Review> getAllReviews() {
 		return reviewRepo.findAll();
 	}

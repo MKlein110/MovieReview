@@ -1,5 +1,6 @@
 package com.perficient.movie_reviewmax.entities;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,14 +12,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Entity
 @Table(name = "user_", schema = "movie_db")
-public class User {
+public class User implements UserDetails {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	@Column(name = "user_email")
 	private String email;
@@ -26,12 +35,13 @@ public class User {
 	private String name;
 	@Column(name = "user_password")
 	private String password;
+	@Column(name = "user_type")
+	private UserType userType;
 	
 	//private List<String> favoriteGenres;
 	
-	@OneToMany
-	@JoinColumn(name = "id_movie")
-	private List<Movie> favoriteMovies;
+//	@Column(name = "user_token")
+//	private Provider userToken;
 
 	public User() {
 		
@@ -67,6 +77,59 @@ public class User {
 		this.password = password;
 	}
 
+	public Object orElseThrow(Object object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		return name;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public int getId() {
+		// TODO Auto-generated method stub
+		return this.id;
+	}
+
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
+
 //	public List<String> getFavoriteGenres() {
 //		return favoriteGenres;
 //	}
@@ -75,12 +138,5 @@ public class User {
 //		this.favoriteGenres = favoriteGenres;
 //	}
 
-	public List<Movie> getFavoriteMovies() {
-		return favoriteMovies;
-	}
-
-	public void setFavoriteMovies(List<Movie> favoriteMovies) {
-		this.favoriteMovies = favoriteMovies;
-	}
 
 }

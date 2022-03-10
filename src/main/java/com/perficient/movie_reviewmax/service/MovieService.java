@@ -1,4 +1,4 @@
-package com.perficient.movie_reviewmax.repo;
+package com.perficient.movie_reviewmax.service;
 
 import java.util.List;
 

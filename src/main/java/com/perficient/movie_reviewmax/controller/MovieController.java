@@ -1,13 +1,20 @@
 package com.perficient.movie_reviewmax.controller;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,7 +29,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.perficient.movie_reviewmax.custom.exception.BusinessException;
 import com.perficient.movie_reviewmax.custom.exception.ControllerException;
 import com.perficient.movie_reviewmax.entities.Movie;
-import com.perficient.movie_reviewmax.repo.MovieReviewServiceImpl;
+import com.perficient.movie_reviewmax.entities.User;
+import com.perficient.movie_reviewmax.security.JwtTokenUtil;
+import com.perficient.movie_reviewmax.service.MovieReviewServiceImpl;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -39,18 +48,46 @@ public class MovieController {
 //	public String getErrorPath() {
 //		return "/error";
 //	}
+	@Autowired
+	private AuthenticationManager authenticationManager;
 
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(MovieReviewServiceImpl.class);
 
-	
 	@GetMapping("/user")
-    public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
-        return Collections.singletonMap("name", principal.getAttribute("name"));
-    }
+    public ResponseEntity<?> user(@AuthenticationPrincipal OAuth2User principal) {
+//		Map<String, Object> authorities = principal.getAttributes();
+//		for (Entry<String, Object> attribute: authorities.entrySet()) {
+//			if (attribute.getKey().equals("name")) {
+//				System.out.println(attribute.getValue());
+//			}
+//		}
+		System.out.println("Entering");
+		String name = principal.getAttribute("name");
+		String email = principal.getAttribute("email");
+		System.out.println("Name is printing" + name);
+		System.out.println("Email is printing" + email);
+		try {
+			Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(name, email));
+		
+			System.out.println(principal);
+			System.out.println(authenticate);
+			User user = (User) authenticate.getPrincipal();
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+		
+			return (ResponseEntity<?>) ResponseEntity.ok()
+					.header(HttpHeaders.AUTHORIZATION, JwtTokenUtil.generateAccessToken(user));
+    
+		} catch(Exception ce) {
+			System.out.println("fail" + ce);
+			return new ResponseEntity<ControllerException>(HttpStatus.BAD_REQUEST) ;
+
+		}
+
+    }
+
+	// @CrossOrigin(origins = "*")
 	@GetMapping("/movies")
-	public ResponseEntity<?> getMovies() {	
+	public ResponseEntity<?> getMovies() {
 		try {
 			logger.info("Returning all movies");
 			return new ResponseEntity<List<Movie>>(serviceRepo.getAllMovies(), HttpStatus.ACCEPTED);
