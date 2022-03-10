@@ -9,10 +9,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
+import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
+import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import com.perficient.movie_reviewmax.security.CustomAuthenticationSuccessHandler;
 import com.perficient.movie_reviewmax.service.CustomOidcUserService;
 
 @Configuration
@@ -21,6 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	private CustomOidcUserService oidcUserService;
+	
+	@Autowired
+	private CustomAuthenticationSuccessHandler authenticationSuccessHandler;
 	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -37,7 +44,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //            .baseUri("/oauth2/callback/google")
             .and()
             .userInfoEndpoint()
-            .oidcUserService(oidcUserService);;
+            .oidcUserService(oidcUserService)
+            .and()
+            .authorizationEndpoint()
+            .authorizationRequestRepository(customAuthorizationRequestRepository())
+            .and()
+            .successHandler(authenticationSuccessHandler)
+            .and()
+            .csrf().disable();
             //.defaultSuccessUrl("/movies");
         // @formatter:on
     }
@@ -52,4 +66,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	        source.registerCorsConfiguration("/**", configuration);
 	        return source;
 	    }
+	   
+	   
+	   @Bean
+	   public AuthorizationRequestRepository<OAuth2AuthorizationRequest> customAuthorizationRequestRepository() {
+	   	return new HttpSessionOAuth2AuthorizationRequestRepository();
+	   }
 }
