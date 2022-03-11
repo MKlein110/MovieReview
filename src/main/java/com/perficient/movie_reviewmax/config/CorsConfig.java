@@ -1,3 +1,10 @@
+/*
+ * Problem: Brute force Cors configuration attempt; cross origin err 
+ *  Trial and error approach
+ *  
+ *  Working approach in SecurityConfig
+ */
+
 //package com.perficient.movie_reviewmax.config;
 //
 //import org.springframework.context.annotation.Bean;
