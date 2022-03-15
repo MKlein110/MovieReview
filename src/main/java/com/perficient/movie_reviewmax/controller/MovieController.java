@@ -53,14 +53,14 @@ public class MovieController {
 
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(MovieReviewServiceImpl.class);
 
-//	@GetMapping("/user")
-//    public ResponseEntity<?> user(@AuthenticationPrincipal OAuth2User principal) {
-//		Map<String, Object> authorities = principal.getAttributes();
-//		for (Entry<String, Object> attribute: authorities.entrySet()) {
-//			if (attribute.getKey().equals("name")) {
-//				System.out.println(attribute.getValue());
-//			}
+	@GetMapping("/user")
+    public OAuth2User user(@AuthenticationPrincipal OAuth2User principal) {
+//		Collection<? extends GrantedAuthority> data = principal.getAuthorities();
+//		for (GrantedAuthority auth: data) {
+//			System.out.println(auth.getAuthority());
 //		}
+		return principal;
+	}
 //		System.out.println("Entering");
 //		String name = principal.getAttribute("name");
 //		String email = principal.getAttribute("email");
