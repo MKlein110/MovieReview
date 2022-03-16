@@ -1,5 +1,7 @@
 package com.perficient.movie_reviewmax.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
@@ -116,6 +118,33 @@ public class MovieReviewServiceImpl implements MovieService {
 			throw new BusinessException(e.getErrorCode(), "Something went wrong in Business Layer: " + e.getErrorMessage());
 		}
 
+	}
+	
+	@Override
+	public List<Movie> deleteFilms(List<Long> film_ids) {
+
+		//no film ids to delete; return empty list
+		if(film_ids.size() == 0) return Collections.emptyList();
+		
+		//return list 
+		List<Movie> deletedFilms = new ArrayList<Movie>();
+		
+		//delete film ids
+		for(long id: film_ids) {
+			Movie deletedFilm = movieRepo.getById(id);
+			
+			try {
+				if(deletedFilm == null) throw new BusinessException("509", "movie not found");
+				else movieRepo.deleteById(id); 
+			} catch (Exception e) {
+				throw e;
+			}
+			
+			//add deleted film to return list
+			deletedFilms.add(deletedFilm);
+		}
+		
+		return deletedFilms;
 	}
 
 	@CacheEvict(value = { "movie-cache", "ordered-movie-cache" }, allEntries = true)

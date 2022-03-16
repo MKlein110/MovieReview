@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .cors().configurationSource(corsConfigurationSource()).and()
             .authorizeRequests(a -> a
-                .antMatchers("/", "/error", "/webjars/**", "**/movies/**", "/movies/{id}", "/search", "/oauth2/authorization/google").permitAll()
+                .antMatchers("/", "/error", "/webjars/**", "**/movies/**", "/movies/{id}", "/search", "/oauth2/authorization/google", "/deleteFilms/**").permitAll()
                 .antMatchers("/review").authenticated()
             )
             //login for Google
