@@ -1,6 +1,8 @@
 package com.perficient.movie_reviewmax.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.perficient.movie_reviewmax.custom.exception.ControllerException;
 import com.perficient.movie_reviewmax.entities.Review;
 import com.perficient.movie_reviewmax.service.MovieReviewServiceImpl;
 
@@ -28,8 +31,13 @@ public class ReviewController {
 	}
 	
 	@PostMapping("/review")
-	public Review createReview(@RequestBody Review review) {
-		return serviceRepo.createReview(review);
+	public ResponseEntity<?> createReview(@RequestBody Review review) {
+		try {
+			return new ResponseEntity<Review>(serviceRepo.createReview(review), HttpStatus.ACCEPTED);
+		} catch (Exception e) {
+			ControllerException ce = new ControllerException("700", "Something went wrong in the controller");
+			return new ResponseEntity<ControllerException>(ce, HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@PutMapping("/review")

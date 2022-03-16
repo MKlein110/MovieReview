@@ -79,6 +79,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
            
             .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             .and()
+            .logout().logoutSuccessUrl("http://localhost:3000/")
+            .and()
             //.csrf().disable()
             .exceptionHandling().accessDeniedHandler(accessDeniedHandler());
             //.defaultSuccessUrl("/movies");
@@ -110,9 +112,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT", "DELETE"));
 
 		// option type header (allow content type connection)
-		configuration.setAllowedHeaders(Arrays.asList("content-type", "authorization", "X-CSRF-TOKEN"));
+		configuration.setAllowedHeaders(Arrays.asList("content-type", "authorization", "X-CSRF-TOKEN", "X-XSRF-TOKEN"));
 		configuration.setAllowCredentials(true);
-
+		configuration.setExposedHeaders(Arrays.asList("Set-Cookie", "Cookie"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
