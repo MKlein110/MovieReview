@@ -156,6 +156,19 @@ public class MovieController {
 			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@DeleteMapping("/deleteFilms/{film_ids}")
+	public ResponseEntity<List<Movie>> deleteFilms(@PathVariable("film_ids") List<Long> film_ids) throws Exception{
+		List<Movie> movie = null;
+		
+		try {
+			movie = serviceRepo.deleteFilms(film_ids);
+		} catch(Exception e) {
+			e.getMessage();
+		}
+		
+		return new ResponseEntity<List<Movie>>(movie, HttpStatus.OK);
+	}
 
 	@DeleteMapping("/delete-all-movies")
 	public ResponseEntity<?> deleteAllMovies() {

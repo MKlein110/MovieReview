@@ -11,4 +11,5 @@ public interface MovieService {
 	List<Movie> searchForMovies(String entry);
 	Movie getById(long id);
 	List<Movie> orderMovieByRating();
+	List<Movie> deleteFilms(List<Long> film_ids);
 }
