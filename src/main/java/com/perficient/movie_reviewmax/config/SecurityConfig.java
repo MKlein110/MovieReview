@@ -17,11 +17,13 @@ import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepo
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.perficient.movie_reviewmax.custom.exception.CustomAccessDeniedHandler;
+import com.perficient.movie_reviewmax.filter.CsrfTokenResponseHeaderBindingFilter;
 import com.perficient.movie_reviewmax.security.CustomAuthenticationSuccessHandler;
 import com.perficient.movie_reviewmax.service.CustomOidcUserService;
 
@@ -59,8 +61,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .cors().configurationSource(corsConfigurationSource()).and()
             .authorizeRequests(a -> a
-                .antMatchers("/", "/error", "/webjars/**", "**/movies/**", "/movies/{id}", "/search", "/oauth2/authorization/google", "/deleteFilms/**").permitAll()
-                .antMatchers("/review").authenticated()
+                .antMatchers("/", "/error", "/webjars/**", "/movies", "/movies/{id}", "/search", "/oauth2/authorization/google", "/deleteFilms/**").permitAll()
+                .antMatchers("/review", "/movie").authenticated()
             )
             //login for Google
             .oauth2Login()
@@ -76,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             //get user attributes and redirect and generate token (once auth)
             .successHandler(authenticationSuccessHandler)
             .and()
-           
+            //.addFilterBefore(new CsrfTokenResponseHeaderBindingFilter(), CsrfFilter.class)
             .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             .and()
             .logout().logoutSuccessUrl("http://localhost:3000/")
@@ -112,7 +114,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT", "DELETE"));
 
 		// option type header (allow content type connection)
-		configuration.setAllowedHeaders(Arrays.asList("content-type", "authorization", "X-CSRF-TOKEN", "X-XSRF-TOKEN"));
+		configuration.setAllowedHeaders(Arrays.asList("content-type", "authorization", "X-CSRF-TOKEN", "X-XSRF-TOKEN", "XSRF-TOKEN"));
 		configuration.setAllowCredentials(true);
 		configuration.setExposedHeaders(Arrays.asList("Set-Cookie", "Cookie"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

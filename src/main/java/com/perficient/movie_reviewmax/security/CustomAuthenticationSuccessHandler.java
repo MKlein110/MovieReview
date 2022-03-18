@@ -1,17 +1,21 @@
 package com.perficient.movie_reviewmax.security;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.mapping.Array;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.server.Cookie;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -85,14 +89,13 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 		OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) securityContext.getAuthentication();
 		OAuth2AuthorizedClient client = clientService
-				.loadAuthorizedClient(oauthToken.getAuthorizedClientRegistrationId(), oauthToken.getName());
-
-		String accessToken = client.getAccessToken().getTokenValue();
+				.loadAuthorizedClient(oauthToken.getAuthorizedClientRegistrationId(), oauthToken.getName());		
 		
-//        String token = JwtTokenUtil.generateAccessToken(user);
+		String accessToken = client.getAccessToken().getTokenValue();
 
+		String xsrfToken = parseToken(response);
 		// get redirect url from user token
-		String redirectionUrl = UriComponentsBuilder.fromUriString(homeUrl).queryParam("auth_token", accessToken)
+		String redirectionUrl = UriComponentsBuilder.fromUriString(homeUrl).queryParam("auth_token", xsrfToken)
 				.build().toUriString();
 
 		// redirect to saved url
@@ -103,7 +106,36 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 		for (String header: headers) {
 			System.out.println(header + ": " + response.getHeader(header));
 		}
-		logger.info("token is" + accessToken);
+		logger.info("token is" + xsrfToken);
+	}
+	
+	/*
+	 * Method: parseToken(HttpServletResponse response)
+	 * 
+	 * Parameters: Takes in response received from Google after being successfully authenticated
+	 * 
+	 * Return: Returns the XSRF-TOKEN received from the Google response
+	 * 
+	 * Description: Goes through the response headers and parses out the XSRF TOKEN from the Set-Cookie header received from the 
+	 * Google authentication response.
+	 *
+	 */
+	private String parseToken(HttpServletResponse response) {
+		List<String> headerList = (List<String>) response.getHeaderNames();
+		Collection<String> setCookieHeaders = new ArrayList<String>();
+		String xsrfToken = "";
+		for (String headerString: headerList) {
+			setCookieHeaders = response.getHeaders(headerString);
+		}
+		for (String values: setCookieHeaders) {
+			if (values.contains("XSRF-TOKEN")) {
+				xsrfToken = values;
+				int startParseIndex = values.indexOf("=");
+				int endParseIndex = values.indexOf(";");
+				xsrfToken = xsrfToken.substring(startParseIndex+1, endParseIndex);
+			}
+		}
+		return xsrfToken;
 	}
 
 }
