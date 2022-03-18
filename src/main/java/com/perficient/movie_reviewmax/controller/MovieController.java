@@ -161,6 +161,7 @@ public class MovieController {
 	@DeleteMapping("/deleteFilms/{film_ids}")
 	public ResponseEntity<List<Movie>> deleteFilms(@PathVariable("film_ids") List<Long> film_ids) throws Exception{
 		List<Movie> movie = null;
+		logger.info("Deleting multiple movies");
 		
 		try {
 			movie = serviceRepo.deleteFilms(film_ids);
