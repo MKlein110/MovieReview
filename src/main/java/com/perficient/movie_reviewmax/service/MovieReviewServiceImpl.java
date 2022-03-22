@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -26,19 +27,21 @@ public class MovieReviewServiceImpl implements MovieService {
 	@Autowired
 	private ReviewRepository reviewRepo;
 
-	private static org.slf4j.Logger logger = LoggerFactory.getLogger(MovieReviewServiceImpl.class);
+	private Logger logger = LoggerFactory.getLogger(MovieReviewServiceImpl.class);
 	
 	@Transactional(readOnly = true)
-	@Cacheable("movie-cache")
+	@CacheEvict(value = { "movie-cache", "ordered-movie-cache" }, allEntries = true)
 	public List<Movie> getAllMovies() {
 		try {
 			List<Movie> movieList = movieRepo.findAll();
-			if (movieList.isEmpty())
+			if (movieList.isEmpty()) {
+				logger.info("Movie list is empty. Nothing to return");
 				throw new BusinessException("501", "MovieList is empty, nothing to return");
-
+			}
 			return movieList;
 		} catch (BusinessException e) {
-			throw new BusinessException(e.getErrorCode(), "Something went wrong in service layer: " + e.getErrorMessage());
+			throw new BusinessException(e.getErrorCode(),
+					"Something went wrong in service layer: " + e.getErrorMessage());
 		}
 
 	}
@@ -46,12 +49,11 @@ public class MovieReviewServiceImpl implements MovieService {
 	@Override
 	@Cacheable("movie-cache")
 	public List<Movie> searchForMovies(String entry) {
-//		try {
+		try {
 			return movieRepo.searchForMovies(entry);
-//			if (search )
-//		} catch (BusinessException e) {
-//			throw new BusinessException(e.getErrorCode(), e.getErrorMessage());
-//		}
+		} catch (BusinessException e) {
+			throw new BusinessException(e.getErrorCode(), e.getErrorMessage());
+		}
 	}
 
 	@Override
@@ -59,9 +61,10 @@ public class MovieReviewServiceImpl implements MovieService {
 	public Movie getById(long id) throws BusinessException {
 		try {
 			Movie movie = movieRepo.getById(id);
-			if (movie == null)
+			if (movie == null) {
+				logger.error("Movie doesn't exist with id: " + id);
 				throw new BusinessException("502", "Given movie id is not present in database");
-
+			}
 			movie.calculateAvgRating();
 			return movieRepo.save(movie);
 
@@ -79,9 +82,11 @@ public class MovieReviewServiceImpl implements MovieService {
 		try {
 			Movie deletedMovie = movieRepo.getById(id);
 			if (deletedMovie == null) {
+				logger.error("Movie doesn't exist with id: " + id + ". Cannot delete.");
 				throw new BusinessException("504", "Movie doesn't exist");
 			}
 			movieRepo.deleteById(id);
+			logger.info("Deleted movie: " + deletedMovie.getTitle());
 		} catch (IllegalArgumentException e) {
 			throw new BusinessException("505", "No parameter passed in");
 		} catch (BusinessException e) {
@@ -94,8 +99,10 @@ public class MovieReviewServiceImpl implements MovieService {
 	public Movie createMovie(Movie movie) {
 		try {
 			if (movie.getTitle().isEmpty() || movie.getDirector().isEmpty()) {
+				logger.error("User entered movie without title or director");
 				throw new BusinessException("506", "Missing title or director entry");
 			}
+			logger.info("Movie with title: " + movie.getTitle() + " successfully added");
 			return movieRepo.save(movie);
 		} catch (IllegalArgumentException e) {
 			throw new BusinessException("507", "Given movie is null " + e.getMessage());
@@ -121,6 +128,7 @@ public class MovieReviewServiceImpl implements MovieService {
 	}
 	
 	@Override
+	@CacheEvict(value = { "movie-cache", "ordered-movie-cache" }, allEntries = true)
 	public List<Movie> deleteFilms(List<Long> film_ids) {
 
 		//no film ids to delete; return empty list
@@ -130,20 +138,23 @@ public class MovieReviewServiceImpl implements MovieService {
 		List<Movie> deletedFilms = new ArrayList<Movie>();
 		
 		//delete film ids
+		logger.info("number of films to delete: " + film_ids.size());
 		for(long id: film_ids) {
-			Movie deletedFilm = movieRepo.getById(id);
-			
+			Movie deletedFilm = movieRepo.getById(id);	
 			try {
-				if(deletedFilm == null) throw new BusinessException("509", "movie not found");
-				else movieRepo.deleteById(id); 
+				if(deletedFilm == null) {
+					logger.info("failed on " + id);
+					throw new BusinessException("509", "movie not found");
+				}
+				else {
+					deletedFilms.add(deletedFilm);
+					movieRepo.deleteById(id); 
+					logger.info("deleted movie: " + deletedFilm.getTitle());
+				}
 			} catch (Exception e) {
 				throw e;
 			}
-			
-			//add deleted film to return list
-			deletedFilms.add(deletedFilm);
 		}
-		
 		return deletedFilms;
 	}
 

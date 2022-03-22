@@ -75,38 +75,14 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 			logger.info("Response already exists");
 			return;
 		}
-
-		// user object in spring made for OAuth2
-		DefaultOidcUser oidcUser = (DefaultOidcUser) authentication.getPrincipal();
-//		Enumeration<String> headers = request.getHeaderNames();
-//		while (headers.hasMoreElements()) {
-//			System.out.println(request.getHeader(headers.nextElement()));
-//		}
-		// Map to store user attributes
-		Map attributes = oidcUser.getAttributes();
-		String email = (String) attributes.get("email");
-		User user = userRepository.findByEmail(email);
-		SecurityContext securityContext = SecurityContextHolder.getContext();
-		OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) securityContext.getAuthentication();
-		OAuth2AuthorizedClient client = clientService
-				.loadAuthorizedClient(oauthToken.getAuthorizedClientRegistrationId(), oauthToken.getName());		
-		
-		String accessToken = client.getAccessToken().getTokenValue();
-
+		logger.info("Attempting google authentication");
 		String xsrfToken = parseToken(response);
 		// get redirect url from user token
 		String redirectionUrl = UriComponentsBuilder.fromUriString(homeUrl).queryParam("auth_token", xsrfToken)
 				.build().toUriString();
-
 		// redirect to saved url
-
 		getRedirectStrategy().sendRedirect(request, response, redirectionUrl);
-		Collection<String> headers = response.getHeaders(redirectionUrl);
-		System.out.println(headers.size());
-		for (String header: headers) {
-			System.out.println(header + ": " + response.getHeader(header));
-		}
-		logger.info("token is" + xsrfToken);
+		logger.info("Authentication successful, token is" + xsrfToken);
 	}
 	
 	/*
@@ -121,12 +97,8 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 	 *
 	 */
 	private String parseToken(HttpServletResponse response) {
-		List<String> headerList = (List<String>) response.getHeaderNames();
-		Collection<String> setCookieHeaders = new ArrayList<String>();
+		Collection<String> setCookieHeaders = response.getHeaders("Set-Cookie");
 		String xsrfToken = "";
-		for (String headerString: headerList) {
-			setCookieHeaders = response.getHeaders(headerString);
-		}
 		for (String values: setCookieHeaders) {
 			if (values.contains("XSRF-TOKEN")) {
 				xsrfToken = values;

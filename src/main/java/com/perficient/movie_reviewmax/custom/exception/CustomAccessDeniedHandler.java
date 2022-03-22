@@ -26,13 +26,10 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 	@ExceptionHandler
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 			AccessDeniedException accessDeniedException) throws IOException, ServletException, InvalidCsrfTokenException {
-		
+		// Print error stack to console
 		accessDeniedException.printStackTrace();
-//		System.out.println(request.getHeader("Cookie"));
 		logger.error("Access denied to user");
-		
-		//throw new AccessDeniedException("403 returned");
-		// TODO Auto-generated method stub+
+		// Send back 403-forbidden response to user
 		response.sendError(403);
 	}
 	

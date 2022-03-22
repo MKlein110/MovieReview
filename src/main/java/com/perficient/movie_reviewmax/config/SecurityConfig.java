@@ -23,7 +23,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.perficient.movie_reviewmax.custom.exception.CustomAccessDeniedHandler;
-import com.perficient.movie_reviewmax.filter.CsrfTokenResponseHeaderBindingFilter;
 import com.perficient.movie_reviewmax.security.CustomAuthenticationSuccessHandler;
 import com.perficient.movie_reviewmax.service.CustomOidcUserService;
 
@@ -62,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .cors().configurationSource(corsConfigurationSource()).and()
             .authorizeRequests(a -> a
                 .antMatchers("/", "/error", "/webjars/**", "/movies", "/movies/{id}", "/search", "/oauth2/authorization/google", "/deleteFilms/**").permitAll()
-                .antMatchers("/review", "/movie").authenticated()
+                .antMatchers("/review", "/movie", "deleteFilms").authenticated()
             )
             //login for Google
             .oauth2Login()
@@ -83,9 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .logout().logoutSuccessUrl("http://localhost:3000/")
             .and()
-            //.csrf().disable()
             .exceptionHandling().accessDeniedHandler(accessDeniedHandler());
-            //.defaultSuccessUrl("/movies");
         // @formatter:on
 	}
 
